@@ -18,22 +18,22 @@ class Game {
       } ,
        {
         name: 'paper',
-        src: './assets/happy-paper.png',
+        src: 'assets/happy-paper.png',
         id: 'paper'
       } ,
       {
         name: 'scissors',
-        src: './assets/happy-scissors.png',
+        src: 'assets/happy-scissors.png',
         id: 'scissors'
       },
        {
         name: 'lizzard',
-        src: './assets/lizard.png',
+        src: 'assets/lizard.png',
         id: 'lizzard'
       },
        {
         name: 'alien',
-        src: './assets/lines-alien.png',
+        src: 'assets/lines-alien.png',
         id: 'alien'
       }
     ]

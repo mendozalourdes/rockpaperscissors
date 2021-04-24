@@ -4,6 +4,8 @@ var middleContainer = document.querySelector('#middleContainer');
 var gameOptions = document.getElementById('gameOptionsContainer');
 var classicGame = document.getElementById('classic');
 var spicyGame = document.getElementById('spicy');
+var playingField = document.getElementById('playingField');
+
 
 var game1 = new Game
 
@@ -19,12 +21,17 @@ function getRandomIndex(array) {
 }
 
 
-gameOptions.addEventListener('click', gameSelection);
+classicGame.addEventListener('click', gameSelection);
+spicyGame.addEventListener('click', gameSelection);
+gameOptions.addEventListener('click', selectFighter);
+
+
 
 function gameSelection() {
   chooseGameLevel();
   showGameBoard();
-
+  selectFighter();
+  //retrieveWinsFromStorage will be here
 }
 
 
@@ -34,32 +41,42 @@ function chooseGameLevel() {
   } else if (event.target.id === 'spicy') {
     game1.gameVersion = 'spicy'
   }
-  console.log(game1)
+  // console.log(game1)
 }
 
 
-// for (var i = 0; i < game.fighter.length, i++) {
-//
-// }
-
 function showGameBoard() {
-  gameOptions.innerHTML = ''
   if (game1.gameVersion === 'classic') {
-    gameOptions.innerHTML += `
-    <section class="${game1.fighter[0].name} fighter" id="${game1.fighter[0].id}">
-        <img src="${game1.fighter[0].src}"/>
-    </section>
-    <section class="${game1.fighter[1].name} fighter" id="${game1.fighter[1].id}">
-        <img src="${game1.fighter[1].src}"/>
-    </section>
-    <section class="${game1.fighter[2].name} fighter" id="${game1.fighter[2].id}">
-        <img src="${game1.fighter[2].src}"/>
-    </section>
-    `
-
-  //
-  // } else if (game1.gameVersion === 'spicy') {
-
+    gameOptions.innerHTML = ''
+      for (var i = 0; i < 3; i++) {
+        gameOptions.innerHTML += `
+      <section class="playing-field" id="playingField">
+        <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
+            <img src="${game1.fighter[i].src}" id="playingField ${game1.fighter[i].id}"/>
+        </section>
+      </section>
+        `
+      }
+  } else if (game1.gameVersion === 'spicy') {
+      gameOptions.innerHTML = ''
+        for (var i = 0; i < game1.fighter.length; i++) {
+          gameOptions.innerHTML += `
+          <section class="playing-field" id="playingField">
+            <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
+                <img src="${game1.fighter[i].src}" id="playingField ${game1.fighter[i].id}"/>
+            </section>
+          </section>        `
+    }
   }
+}
 
+function selectFighter() {
+  // game1.chooseFighter();
+  for (var i = 0; i < game1.fighter.length; i++) {
+      if (event.target.id === `${game1.fighter[i].id}`) {
+        // game1.fighter =  `${game1.fighter[i].name}`
+        game1.board.push(`'${game1.fighter[i].name}'`)
+      }
+    }
+    console.log(game1.board)
 }
