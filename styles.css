@@ -59,12 +59,40 @@ main {
   background-color: #b8a9c9;
   margin: 0 0 2rem 0;
   padding: 3%;
+  cursor: pointer;
 }
 
-.difficult-game {
+.spicy-game {
   background-color: #b8a9c9;
-  padding: 2%;
+  padding: 4.5%;
+  cursor: pointer;
 }
+
+.playing-field {
+  display: flex;
+  flex-direction: row;
+}
+
+.fighter-image {
+  cursor: pointer;
+  width: 80%;
+
+}
+/* .rock {
+cursor: pointer;
+}
+
+.paper {
+cursor: pointer;
+}
+
+.scissors {
+cursor: pointer;
+}
+
+.lizard {
+cursor: pointer;
+} */
 
 
 .hidden {
