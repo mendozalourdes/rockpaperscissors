@@ -10,6 +10,7 @@
       <main class="main-page" id="mainPage">
         <section class="left-side-container" id="leftSideContainer">
           <section class="human-side" id="humanSide">
+
             <!-- <div class="human-header" id="humanHeader"> -->
               <div class="human-emoji" id="humanEmoji">👩🏽‍🦱</div>
               <p class="left-header" id="leftHeader">Human</p>
@@ -18,7 +19,7 @@
             </div>
           </section>
         </section>
-        <section class="middle-section-container" id="middleSideContainer">
+        <section class="middle-section-container" id="middleContainer">
           <section class="header" id="header">
             <h1 class="game-name" id="gameName">Rock, Paper, Scissors</h1>
               <p class="sub-heading" id="subHeading">Choose your fighter!</p>
@@ -26,20 +27,20 @@
           <form class="fighter-container hidden" id="fighterContainer">
           </form>
           <section class="game-options-container" id="gameOptionsContainer">
-            <button class="classic-game" id="classicGame">
-              <p>🪨</p>
-              <h2 class="classic-title" id="classicTitle">📃✂️CLASSIC📃✂️</H1>
-                <p class="classic-rules" id="classicRule1">rock > scissors </p>
-                <p class="classic-rules" id="classicRule2">paper > rock </p>
-                <p class="classic-rules" id="classicRule3">scissors > paper </p>
+            <button class="classic-game classic" id="classic">
+              <p id="classic">🪨</p>
+              <h2 class="classic-title classic " id="classic">📃✂️CLASSIC📃✂️</H1>
+                <p class="classic-rules classic" >rock > scissors </p>
+                <p class="classic-rules classic" id="classic">paper > rock </p>
+                <p class="classic-rules classic" id="classic">rock > scissors</p>
             </button>
-            <button class="difficult-game" id="difficultGame">
-              <h2 class="difficult-title" id="difficultTitle">👽🦎DIFFICULT🦎👽</h2>
-                <p class="difficult-rules" id="difficultRule1">rock > scissors & lizard </p>
-                <p class="difficult-rules" id="difficultRule2">paper > rock & alien </p>
-                <p class="difficult-rules" id="difficultRule3">scissors > paper & lizard </p>
-                <p class="difficult-rules" id="difficultRule4">paper > paper & alien </p>
-                <p class="difficult-rules" id="difficultRule5">alien > scissors & rock </p>
+            <button class="spicy-game spicy" id="spicy">
+              <h2 class="spicy-title spicy" id="spicy">👽🦎SPICY🦎👽</h2>
+                <p class="spicy-rules spicy" id="spicy">rock > scissors & lizard </p>
+                <p class="spicy-rules spicy" id="spicy">paper > rock & alien </p>
+                <p class="spicy-rules spicy" id="spicyRule3">scissors > paper & lizard </p>
+                <p class="spicy-rules spicy" id="spicy">paper > paper & alien </p>
+                <p class="spicy-rules spicy" id="spicy">alien > scissors & rock </p>
             </button>
           </section>
         </section>
@@ -52,8 +53,8 @@
             </div>
           </section>
       </main>
-    <script src="./src/main.js"></script>
-    <script src="./src/game.js"></script>
-    <script src="./src/player.js"></script>
+      <script src="./player.js"></script>
+      <script src="./game.js"></script>
+      <script src="./main.js"></script>
   </body>
 </html>
