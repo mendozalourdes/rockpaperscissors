@@ -30,6 +30,13 @@ main {
   width: 20vw;
 }
 
+.left-side-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
 .middle-section-container {
   display: flex;
   flex-direction: column;
@@ -78,22 +85,20 @@ main {
   width: 80%;
 
 }
-/* .rock {
-cursor: pointer;
+
+.human-side{
+  display: flex;
+  flex-direction: column;
 }
 
-.paper {
-cursor: pointer;
+.change-game-button {
+  cursor: pointer;
+  width: 40%;
+  height: 5%;
+  border: none;
+  background-color: #9932CC;
+
 }
-
-.scissors {
-cursor: pointer;
-}
-
-.lizard {
-cursor: pointer;
-} */
-
 
 .hidden {
   display: none;

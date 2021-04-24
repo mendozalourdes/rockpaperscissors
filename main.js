@@ -125,13 +125,13 @@ function chooseFighter() {
   }
 }
 
-
-function selectHumanFighter() {
-  if (event.target.id === 'rock' || event.target.id === 'paper' || event.target.id === 'scissors' || event.target.id === 'lizard' || event.target.id === 'alien') {
-      game1.humanFighter = event.target.id
-      game1.board.push(event.target.id)
-    }
-  }
+//this is in the
+// function selectHumanFighter() {
+//   if (event.target.id === 'rock' || event.target.id === 'paper' || event.target.id === 'scissors' || event.target.id === 'lizard' || event.target.id === 'alien') {
+//       game1.humanFighter = event.target.id
+//       game1.board.push(event.target.id)
+//     }
+//   }
 
 function selectComputerFighter() {
 if (game1.gameVersion === 'classic') {
@@ -213,10 +213,10 @@ function changeGame() {
 
   }
 }
-
-function resetGame() {
-  if ()
-}
+//
+// function resetGame() {
+//   if ()
+// }
 
 // function updateWins() {
 //   if (game1.humanPlayer.wins > 0) {

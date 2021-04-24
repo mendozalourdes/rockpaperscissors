@@ -25,10 +25,12 @@ class Player {
     this.humanFighter = event.target.id
 
   }
+  this.turn = true
+}
 
 
 
-};
+}
 
 
-// module.exports = Player;
+module.exports = Player;

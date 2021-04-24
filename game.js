@@ -1,8 +1,4 @@
-// var Player = require('./player');
-
-// var player1 = new Player('Human', '👩🏽')
-// var player2 = new Player('Computer', '💻')
-
+var Player = require('./player');
 class Game {
   constructor(gameVersion, fighter, winner) {
     this.humanPlayer = new Player('Human', '👩🏽')
@@ -12,9 +8,10 @@ class Game {
     this.humanFighter = fighter
     this.computerFighter = fighter
     this.winner = winner
+    this.gameCount= 0
+    this.gameGoing = true
     this.board = []
     this.fighter = [
-    // ['rock', 'paper', 'scissors', 'lizzard', 'alien']
        {
         name: 'rock',
         src: 'assets/happy-rock.png',
@@ -43,81 +40,102 @@ class Game {
     ]
   }
 
+  chooseFighter() {
+    if (event.target.id === 'rock' || event.target.id === 'paper' || event.target.id === 'scissors' || event.target.id === 'lizard' || event.target.id === 'alien') {
+        this.humanFighter = event.target.id
+        this.board.push(event.target.id)
+  } if (this.board.length === 1) {
+      if (this.gameVersion === 'classic') {
+        this.fighter.length = 3
+        this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name
+        this.board.push(this.computerFighter)
+    } else if (this.gameVersion === 'spicy') {
+        this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name
+        this.board.push(this.computerFighter)
+    }
+  }
+}
 
-//should be able to choose a fighter
-  // chooseFighter(gameVersion) {
+pickWinner() {
+  for (var i = 0; i < this.board.length; i++) {
+    if (this.board.includes('rock') && ((this.board.includes('scissors')) || (this.board.includes('lizard')))) {
+      this.winner = 'rock'
+    } else if (this.board.includes('paper') && ((this.board.includes('rock')) || (this.board.includes('alien')))) {
+      this.winner = 'paper'
+    } else if (this.board.includes('scissors') && ((this.board.includes('paper')) || (this.board.includes('lizard')))) {
+      this.winner = 'scissors'
+    } else if (this.board.includes('alien') && ((this.board.includes('scissors')) || (this.board.includes('rock')))) {
+      this.winner = 'alien'
+    } else if (this.board.includes('lizard') && ((this.board.includes('paper')) || (this.board.includes('alien')))) {
+      this.winner = 'lizard'
+    }
+  }
+}
 
+addWins() {
+  if (this.humanFighter === this.winner) {
+      this.humanPlayer.wins+=1
+      // this.gameCount+=1
+      //reassign humanWins.innerText = ${game1.humanPlayer.wins} in main js w/selector
+  } else if (this.computerFighter === this.winner) {
+      this.computerPlayer.wins+=1
+      // this.gameCount+=1
+      //reassign computer.innerText = ${game1.humanPlayer.wins} in main js w/selector
+    }
+    return this.gameCount+=1
+  }
 
+checkforDraw() {
+  if (this.humanFighter === this.computerFighter) {
+    this.draw = true
+  }
+  if (this.draw === true) {
+    this.winner = 'none'
+    this.gameCount+=1
+    }
+  }
 
-  //     this.board.push(fighterId)
-  //
-  //       if(this.gameVersion === 'classic') {
-  //
-  //       }
-  //
-  //     this is where the randomizer index thing goes
-  //
-
-
-
-  //   // for (var i = 0; i < this.board.length; i++) {
-  //     if (this.board.includes('rock') && this.board.includes('paper')) {
-  //       return
-  //     }
-  //     else if ((this.board.includes('rock') && this.board.includes('scissors'))
-  //       return
-  //     else if ((this.board.includes('paper') && this.board.includes('scissors'))
-  //       return
-
-  //     if ( this.board.includes(fighterId)) {
-  //       console.log(this.board)
-  //     } else
-  //       console.log(this.board)
-  //     }
-  // //
-  //     }
-  //
-  //   }
-  //
-  //
-  //     this.fighter === rock && this.fighter
-  // }
-//
-// //should be able to determine a winner based on conditionals
-//   pickWinner() {
-//
-//
-//   }
-//
-// //should be able to check if there's a draw
-//   checkforDraw() {
-//
-//
-//   }
-//
-// //should update the corresponding player's wins
-//   updateWin() {
-//
-//
-//   }
-//
-// //should reset the game once there's a winner (go back to choose fighter)
-//   resetGame() {
-//
-//   }
-
-
-
+resetGame() {
+  if (this.gameCount === 1) {
+    this.gameGoing = false
+    this.humanFighter = ''
+    this.computerFighter = ''
+    this.board.splice(0, 2)
+    this.winner = ''
+    this.gameCount = 0
+    this.gameGoing = true
+  }
+  return
+  "You've started a new game"
+}
 
 }
 
+// function delayBoardReset() {
+//   disableButtons()
+//   //METHOD INSIDE GAME CLASS, RE TIMEOUT
+//   // window.setTimeout(resetGame, 2 * 1000);
+// }
+
+
+
+
 // module.exports = Game;
 //
-// var game = new Game ('classic');
-// //
-// console.log(game.fighter[0].name)
-// //
-
-// game.chooseFighter()
-
-// console.log(game.board[0].rock.name)
+var game = new Game ('classic');
+game.humanFighter = 'paper'
+game.computerFighter = 'rock'
+game.board = ['paper', 'rock']
+game.pickWinner();
+game.addWins();
+game.humanPlayer.takeTurn();
+// game.checkforDraw();
+game.resetGame();
+// console.log('human', game.humanPlayer.wins)
+// console.log('comp', game.computerPlayer.wins)
+// console.log(game.gameCount)
+// console.log('winner', game.winner)
+// console.log('count', game.gameCount)
+// console.log('draw', game.draw)
+// console.log(game.board)
+console.log('turn', game.humanPlayer.turn)
