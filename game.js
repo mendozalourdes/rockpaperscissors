@@ -4,16 +4,20 @@
 // var player2 = new Player('Computer', '💻')
 
 class Game {
-  constructor(gameVersion) {
+  constructor(gameVersion, fighter, winner) {
     this.humanPlayer = new Player('Human', '👩🏽')
     this.computerPlayer = new Player('Computer', '💻')
     this.gameVersion = gameVersion
     this.draw = false;
+    this.humanFighter = fighter
+    this.computerFighter = fighter
+    this.winner = winner
+    this.board = []
     this.fighter = [
     // ['rock', 'paper', 'scissors', 'lizzard', 'alien']
        {
         name: 'rock',
-        src: 'assets/happy-rocks.png',
+        src: 'assets/happy-rock.png',
         id: 'rock'
       } ,
        {
@@ -27,9 +31,9 @@ class Game {
         id: 'scissors'
       },
        {
-        name: 'lizzard',
-        src: 'assets/lizard.png',
-        id: 'lizzard'
+        name: 'lizard',
+        src: 'assets/happy-lizard.png',
+        id: 'lizard'
       },
        {
         name: 'alien',
@@ -37,7 +41,6 @@ class Game {
         id: 'alien'
       }
     ]
-    this.board = []
   }
 
 
