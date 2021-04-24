@@ -21,7 +21,8 @@ class Player {
 
 
   takeTurn() {
-    this.humanTurn = true;
+    if (event.target.id === 'rock' || event.target.id === 'paper' || event.target.id === 'scissors' || event.target.id === 'lizard' || event.target.id === 'alien') {
+    this.humanFighter = event.target.id
 
   }
 
