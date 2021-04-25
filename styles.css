@@ -1,13 +1,13 @@
 * {
   /* border: 1px solid blue; */
-  font-family: 'Open Sans', sans-serif;
-  color: white;
+  font-family: 'Chalkduster', sans-serif;
+  color: #9DC88D;
   margin: 0;
   vertical-align: baseline;
 }
 
 body {
-  background-color: #9932CC;
+  background-color: #164A41;
   margin: 0
 }
 
@@ -23,18 +23,12 @@ main {
 .left-side-container,
 .right-side-container {
   display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  background-color: #b8a9c9;
-  align-items: stretch;
-  width: 20vw;
-}
-
-.left-side-container {
-  display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  flex-grow: 1;
+  background-color: #4D774E;
   align-items: center;
+  width: 20vw;
 }
 
 .middle-section-container {
@@ -63,14 +57,14 @@ main {
 }
 
 .classic-game {
-  background-color: #b8a9c9;
+  background-color: #4D774E;
   margin: 0 0 2rem 0;
   padding: 3%;
   cursor: pointer;
 }
 
 .spicy-game {
-  background-color: #b8a9c9;
+  background-color: #4D774E;
   padding: 4.5%;
   cursor: pointer;
 }
@@ -78,6 +72,7 @@ main {
 .playing-field {
   display: flex;
   flex-direction: row;
+  margin-top: 12%;
 }
 
 .fighter-image {
@@ -96,7 +91,7 @@ main {
   width: 40%;
   height: 5%;
   border: none;
-  background-color: #9932CC;
+  background-color: #164A41;
 
 }
 
