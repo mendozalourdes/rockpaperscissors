@@ -1,4 +1,4 @@
-var Player = require('./player');
+// var Player = require('./player');
 class Game {
   constructor(gameVersion, fighter, winner) {
     this.humanPlayer = new Player('Human', '👩🏽')
@@ -9,7 +9,6 @@ class Game {
     this.computerFighter = fighter
     this.winner = winner
     this.gameCount= 0
-    this.gameGoing = true
     this.board = []
     this.fighter = [
        {
@@ -39,6 +38,16 @@ class Game {
       }
     ]
   }
+
+  chooseGameLevel() {
+    if (event.target.id === 'classic') {
+      this.gameVersion = 'classic'
+    } else if (event.target.id === 'spicy') {
+      this.gameVersion = 'spicy'
+    }
+    // subHeading.innerText = "Choose your fighter!"
+  }
+
 
   chooseFighter() {
     if (event.target.id === 'rock' || event.target.id === 'paper' || event.target.id === 'scissors' || event.target.id === 'lizard' || event.target.id === 'alien') {
@@ -97,16 +106,13 @@ checkforDraw() {
 
 resetGame() {
   if (this.gameCount === 1) {
-    this.gameGoing = false
-    this.humanFighter = ''
-    this.computerFighter = ''
-    this.board.splice(0, 2)
-    this.winner = ''
-    this.gameCount = 0
-    this.gameGoing = true
+      this.gameGoing = false
+      this.humanFighter = ''
+      this.computerFighter = ''
+      this.board.splice(0, 2)
+      this.winner = ''
+      this.gameCount = 0
   }
-  return
-  "You've started a new game"
 }
 
 }
@@ -122,20 +128,25 @@ resetGame() {
 
 // module.exports = Game;
 //
-var game = new Game ('classic');
-game.humanFighter = 'paper'
-game.computerFighter = 'rock'
-game.board = ['paper', 'rock']
-game.pickWinner();
-game.addWins();
-game.humanPlayer.takeTurn();
-// game.checkforDraw();
-game.resetGame();
+// var game = new Game ('spicy');
+// game.humanFighter = 'alien'
+// game.computerFighter = 'rock'
+// game.board = ['alien', 'rock']
+// game.pickWinner();
+// game.addWins();
+// game.humanFighter = 'rock'
+// game.computerFighter = 'alien'
+// game.board = ['rock', 'alien']
+// game.pickWinner();
+// game.addWins();
+
+
+// console.log('winner', game.winner)
 // console.log('human', game.humanPlayer.wins)
 // console.log('comp', game.computerPlayer.wins)
 // console.log(game.gameCount)
-// console.log('winner', game.winner)
 // console.log('count', game.gameCount)
 // console.log('draw', game.draw)
 // console.log(game.board)
-console.log('turn', game.humanPlayer.turn)
+// console.log('turn', game.humanPlayer.turn)
+// console.log(game.gameCount)
