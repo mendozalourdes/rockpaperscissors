@@ -1,5 +1,5 @@
 
-//Query Selectors
+//---------------------Query Selectors---------------------
 var middleContainer = document.querySelector('#middleContainer');
 var gameOptions = document.getElementById('gameOptionsContainer');
 var classicGame = document.getElementById('classic');
@@ -14,12 +14,11 @@ var leftSideContainer = document.getElementById('leftSideContainer');
 var humanWins = document.getElementById('humanWins')
 var computerWins = document.getElementById('computerWins')
 
-//Global Variables
+//----------------Global Variables -------------------------
 var game1 = new Game();
 
 
-
-//Event Listeners
+//----------------Event Listeners -------------------------
 classicGame.addEventListener('click', gameSelection);
 spicyGame.addEventListener('click', gameSelection);
 fighterContainer.addEventListener('click', chooseFighter);
@@ -27,30 +26,11 @@ window.addEventListener('load', presentPlayers);
 leftSideContainer.addEventListener('click', changeGame);
 
 
+// -------------------Event Handlers -----------------------
 function presentPlayers() {
-  loadHuman();
-  loadComputer();
   game1.humanPlayer.retrieveWinsFromStorage();
   game1.computerPlayer.retrieveWinsFromStorage();
 }
-
-function loadHuman() {
-  humanSection.innerHTML = ''
-  humanSection.innerHTML +=`
-  <div class="human-emoji" id="humanEmoji">${game1.humanPlayer.token}</div>
-  <p class="left-header" id="leftHeader">${game1.humanPlayer.name}</p>
-  <p class="human-wins" id="humanWins"></p>
-  `
-  hide(changeGameButton);
-}
-function loadComputer() {
-  computerSection.innerHTML += `
-<div class="computer-emoji" id="computerEmoji">${game1.computerPlayer.token}</div>
-<p class="right-header" id="rightHeader">${game1.computerPlayer.name}</p>
-<p class="computer-wins" id="computerWins">Wins:${game1.computerPlayer.wins}</p>
-  `
-}
-
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -71,7 +51,7 @@ function gameSelection() {
   //retrieveWinsFromStorage will be here
 }
 
-// Function INSIDE GAME/PLAYER///////////////////////
+// Functions INSIDE GAME/PLAYER///////////////////////
 
 function chooseGameLevel() {
   if (event.target.id === 'classic') {
@@ -161,7 +141,6 @@ function pullWins() {
   displayWins();
 
 }
-
 
 function displayWins() {
   humanWins.innerText = `Wins : ${game1.humanPlayer.wins}`

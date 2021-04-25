@@ -1,7 +1,7 @@
 // var Player = require('./player');
 class Game {
   constructor(gameVersion, fighter, winner) {
-    this.humanPlayer = new Player('Human', '👩🏽')
+    this.humanPlayer = new Player('Human', '👩🏽‍🦱')
     this.computerPlayer = new Player('Computer', '💻')
     this.gameVersion = gameVersion
     this.draw = false;
@@ -84,11 +84,9 @@ pickWinner() {
 addWins() {
   if (this.humanFighter === this.winner) {
       this.humanPlayer.wins+=1
-      // this.gameCount+=1
       //reassign humanWins.innerText = ${game1.humanPlayer.wins} in main js w/selector
   } else if (this.computerFighter === this.winner) {
       this.computerPlayer.wins+=1
-      // this.gameCount+=1
       //reassign computer.innerText = ${game1.humanPlayer.wins} in main js w/selector
     }
     return this.gameCount+=1
