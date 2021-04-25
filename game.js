@@ -1,19 +1,19 @@
 // var Player = require('./player');
-
-// var player1 = new Player('Human', '👩🏽')
-// var player2 = new Player('Computer', '💻')
-
 class Game {
-  constructor(gameVersion) {
+  constructor(gameVersion, fighter, winner) {
     this.humanPlayer = new Player('Human', '👩🏽')
     this.computerPlayer = new Player('Computer', '💻')
     this.gameVersion = gameVersion
     this.draw = false;
+    this.humanFighter = fighter
+    this.computerFighter = fighter
+    this.winner = winner
+    this.gameCount= 0
+    this.board = []
     this.fighter = [
-    // ['rock', 'paper', 'scissors', 'lizzard', 'alien']
        {
         name: 'rock',
-        src: 'assets/happy-rocks.png',
+        src: 'assets/happy-rock.png',
         id: 'rock'
       } ,
        {
@@ -27,9 +27,9 @@ class Game {
         id: 'scissors'
       },
        {
-        name: 'lizzard',
-        src: 'assets/lizard.png',
-        id: 'lizzard'
+        name: 'lizard',
+        src: 'assets/happy-lizard.png',
+        id: 'lizard'
       },
        {
         name: 'alien',
@@ -37,84 +37,116 @@ class Game {
         id: 'alien'
       }
     ]
-    this.board = []
+  }
+
+  chooseGameLevel() {
+    if (event.target.id === 'classic') {
+      this.gameVersion = 'classic'
+    } else if (event.target.id === 'spicy') {
+      this.gameVersion = 'spicy'
+    }
+    // subHeading.innerText = "Choose your fighter!"
   }
 
 
-//should be able to choose a fighter
-  // chooseFighter(gameVersion) {
+  chooseFighter() {
+    if (event.target.id === 'rock' || event.target.id === 'paper' || event.target.id === 'scissors' || event.target.id === 'lizard' || event.target.id === 'alien') {
+        this.humanFighter = event.target.id
+        this.board.push(event.target.id)
+  } if (this.board.length === 1) {
+      if (this.gameVersion === 'classic') {
+        this.fighter.length = 3
+        this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name
+        this.board.push(this.computerFighter)
+    } else if (this.gameVersion === 'spicy') {
+        this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name
+        this.board.push(this.computerFighter)
+    }
+  }
+}
 
+pickWinner() {
+  for (var i = 0; i < this.board.length; i++) {
+    if (this.board.includes('rock') && ((this.board.includes('scissors')) || (this.board.includes('lizard')))) {
+      this.winner = 'rock'
+    } else if (this.board.includes('paper') && ((this.board.includes('rock')) || (this.board.includes('alien')))) {
+      this.winner = 'paper'
+    } else if (this.board.includes('scissors') && ((this.board.includes('paper')) || (this.board.includes('lizard')))) {
+      this.winner = 'scissors'
+    } else if (this.board.includes('alien') && ((this.board.includes('scissors')) || (this.board.includes('rock')))) {
+      this.winner = 'alien'
+    } else if (this.board.includes('lizard') && ((this.board.includes('paper')) || (this.board.includes('alien')))) {
+      this.winner = 'lizard'
+    }
+  }
+}
 
+addWins() {
+  if (this.humanFighter === this.winner) {
+      this.humanPlayer.wins+=1
+      // this.gameCount+=1
+      //reassign humanWins.innerText = ${game1.humanPlayer.wins} in main js w/selector
+  } else if (this.computerFighter === this.winner) {
+      this.computerPlayer.wins+=1
+      // this.gameCount+=1
+      //reassign computer.innerText = ${game1.humanPlayer.wins} in main js w/selector
+    }
+    return this.gameCount+=1
+  }
 
-  //     this.board.push(fighterId)
-  //
-  //       if(this.gameVersion === 'classic') {
-  //
-  //       }
-  //
-  //     this is where the randomizer index thing goes
-  //
+checkforDraw() {
+  if (this.humanFighter === this.computerFighter) {
+    this.draw = true
+  }
+  if (this.draw === true) {
+    this.winner = 'none'
+    this.gameCount+=1
+    }
+  }
 
-
-
-  //   // for (var i = 0; i < this.board.length; i++) {
-  //     if (this.board.includes('rock') && this.board.includes('paper')) {
-  //       return
-  //     }
-  //     else if ((this.board.includes('rock') && this.board.includes('scissors'))
-  //       return
-  //     else if ((this.board.includes('paper') && this.board.includes('scissors'))
-  //       return
-
-  //     if ( this.board.includes(fighterId)) {
-  //       console.log(this.board)
-  //     } else
-  //       console.log(this.board)
-  //     }
-  // //
-  //     }
-  //
-  //   }
-  //
-  //
-  //     this.fighter === rock && this.fighter
-  // }
-//
-// //should be able to determine a winner based on conditionals
-//   pickWinner() {
-//
-//
-//   }
-//
-// //should be able to check if there's a draw
-//   checkforDraw() {
-//
-//
-//   }
-//
-// //should update the corresponding player's wins
-//   updateWin() {
-//
-//
-//   }
-//
-// //should reset the game once there's a winner (go back to choose fighter)
-//   resetGame() {
-//
-//   }
-
-
-
+resetGame() {
+  if (this.gameCount === 1) {
+      this.gameGoing = false
+      this.humanFighter = ''
+      this.computerFighter = ''
+      this.board.splice(0, 2)
+      this.winner = ''
+      this.gameCount = 0
+  }
+}
 
 }
 
+// function delayBoardReset() {
+//   disableButtons()
+//   //METHOD INSIDE GAME CLASS, RE TIMEOUT
+//   // window.setTimeout(resetGame, 2 * 1000);
+// }
+
+
+
+
 // module.exports = Game;
 //
-// var game = new Game ('classic');
-// //
-// console.log(game.fighter[0].name)
-// //
+// var game = new Game ('spicy');
+// game.humanFighter = 'alien'
+// game.computerFighter = 'rock'
+// game.board = ['alien', 'rock']
+// game.pickWinner();
+// game.addWins();
+// game.humanFighter = 'rock'
+// game.computerFighter = 'alien'
+// game.board = ['rock', 'alien']
+// game.pickWinner();
+// game.addWins();
 
-// game.chooseFighter()
 
-// console.log(game.board[0].rock.name)
+// console.log('winner', game.winner)
+// console.log('human', game.humanPlayer.wins)
+// console.log('comp', game.computerPlayer.wins)
+// console.log(game.gameCount)
+// console.log('count', game.gameCount)
+// console.log('draw', game.draw)
+// console.log(game.board)
+// console.log('turn', game.humanPlayer.turn)
+// console.log(game.gameCount)
