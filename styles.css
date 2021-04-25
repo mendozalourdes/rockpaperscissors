@@ -6,6 +6,7 @@
   vertical-align: baseline;
 }
 
+
 body {
   background-color: #164A41;
   margin: 0
@@ -25,10 +26,21 @@ main {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  flex-grow: 1;
   background-color: #4D774E;
   align-items: center;
   width: 20vw;
+  font-size: 50px;
+}
+
+.human-wins,
+.computer-wins {
+  font-size: 35px;
+  margin-top: 15%;
+}
+
+.human-emoji,
+.computer-emoji {
+  margin-top: 15%;
 }
 
 .middle-section-container {
@@ -41,11 +53,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
 .sub-heading {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .game-options-container {
@@ -58,27 +70,38 @@ main {
 
 .classic-game {
   background-color: #4D774E;
-  margin: 0 0 2rem 0;
+  margin-bottom: 3rem;
   padding: 3%;
   cursor: pointer;
+  border-radius: 15%;
+  font-size: 20px;
 }
 
 .spicy-game {
   background-color: #4D774E;
   padding: 4.5%;
   cursor: pointer;
+  border-radius: 15%;
+  font-size: 16px;
 }
+
+.spicy-game:hover,
+.classic-game:hover {
+  background-color: #568203;
+}
+
 
 .playing-field {
   display: flex;
   flex-direction: row;
-  margin-top: 12%;
+  margin-top: 8%;
 }
 
 .fighter-image {
   cursor: pointer;
-  width: 80%;
-
+  width: 70%;
+  /* width: 65%; */
+  margin-left: 15%;
 }
 
 .human-side{
@@ -86,14 +109,20 @@ main {
   flex-direction: column;
 }
 
+
 .change-game-button {
   cursor: pointer;
-  width: 40%;
-  height: 5%;
-  border: none;
+  font-size: 15px;
+  width: 55%;
+  height: 7%;
   background-color: #164A41;
-
+  border-radius: 15%;
+  margin: 45% 0 0 5%;
 }
+.change-game-button:hover {
+  background-color: #568203;
+}
+
 
 .hidden {
   display: none;
