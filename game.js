@@ -33,7 +33,7 @@ class Game {
       },
        {
         name: 'alien',
-        src: 'assets/lines-alien.png',
+        src: 'assets/happy-alien.png',
         id: 'alien'
       }
     ]
