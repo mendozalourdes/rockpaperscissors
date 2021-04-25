@@ -16,15 +16,11 @@ var game1 = new Game();
 window.addEventListener('load', presentPlayers);
 gameOptions.addEventListener('click', gameSelection);
 fighterContainer.addEventListener('click', beginGame);
-// leftSideContainer.addEventListener('click', changeGame);
-
 changeGameButton.addEventListener('click', function(){location.reload()});
-
-
 
 // -------------------Event Handlers -----------------------//
 function presentPlayers() {
-pullWins();
+pullStoredWins();
 }
 
 function getRandomIndex(array) {
@@ -39,18 +35,14 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
-
 function gameSelection() {
   game1.chooseGameLevel();
-  console.log('level', game1.gameVersion)
-  console.log(event.target.id)
   showGameBoard();
-  //retrieveWinsFromStorage will be here
 }
 
 function showGameBoard() {
-  subHeading.innerText = 'Choose your fighter!'
   if (game1.gameVersion === 'classic') {
+    subHeading.innerText = 'Choose your fighter!'
     hide(gameOptions);
     show(fighterContainer);
     fighterContainer.innerHTML = ''
@@ -65,6 +57,7 @@ function showGameBoard() {
         `
       }
   } else if (game1.gameVersion === 'spicy') {
+    subHeading.innerText = 'Choose your fighter!'
     hide(gameOptions);
     show(fighterContainer);
     fighterContainer.innerHTML = ''
@@ -99,27 +92,33 @@ function beginGame(){
   game1.pickWinner();
   game1.addWins();
   game1.checkforDraw();
-  displayWins();
+  updateLocalStorage();
+  updateWinner();
   // console.log('board', game1.board)
   // console.log('h', game1.humanFighter)
   // console.log('c', game1.computerFighter);
   // console.log('hwin', game1.humanPlayer.wins)
   // console.log('cwin', game1.computerPlayer.wins)
   // console.log('count', game1.gameCount)
-  game1.resetGame();
+  // game1.resetGame();
   show(changeGameButton);
 
 }
 
 
-function pullWins() {
+function pullStoredWins() {
   game1.humanPlayer.retrieveWinsFromStorage();
   game1.computerPlayer.retrieveWinsFromStorage();
-  // displayWins();
+  displayWins();
 
 }
 
-function displayWins() {
+function updateLocalStorage() {
+  game1.humanPlayer.saveWinsToStorage();
+  game1.computerPlayer.saveWinsToStorage();
+}
+
+function updateWinner() {
   if (game1.humanFighter === game1.winner) {
     subHeading.innerText = `${game1.humanPlayer.token}${game1.humanPlayer.name} won this round!${game1.humanPlayer.token}`
   } else if (game1.computerFighter === game1.winner) {
@@ -127,17 +126,10 @@ function displayWins() {
   } else if (game1.draw === true) {
       subHeading.innerText = `🥺🥺It's a draw!!🥺🥺`
   }
-  humanWins.innerText = `Wins : ${game1.humanPlayer.wins}`
-  computerWins.innerText = `Wins: ${game1.computerPlayer.wins}`
+  displayWins();
 }
 
-
-// function changeGame() {
-//
-//
-//   if (event.target.id === 'changeGameButton') {
-//     hide(fighterContainer);
-//     show(gameOptions);
-//     subHeading.innerText = 'Choose your game!'
-//   }
-// }
+  function displayWins() {
+  humanWins.innerText = 'Wins: ' + game1.humanPlayer.retrieveWinsFromStorage();
+  computerWins.innerText = 'Wins: ' + game1.computerPlayer.retrieveWinsFromStorage();
+}
