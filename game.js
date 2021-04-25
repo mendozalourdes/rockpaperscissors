@@ -1,7 +1,7 @@
 // var Player = require('./player');
 class Game {
   constructor(gameVersion, fighter, winner) {
-    this.humanPlayer = new Player('Human', '👩🏽')
+    this.humanPlayer = new Player('Human', '👩🏽‍🦱')
     this.computerPlayer = new Player('Computer', '💻')
     this.gameVersion = gameVersion
     this.draw = false;
@@ -63,6 +63,8 @@ class Game {
         this.board.push(this.computerFighter)
     }
   }
+  this.humanPlayer.takeTurn();
+  this.computerPlayer.takeTurn();
 }
 
 pickWinner() {
@@ -84,14 +86,13 @@ pickWinner() {
 addWins() {
   if (this.humanFighter === this.winner) {
       this.humanPlayer.wins+=1
-      // this.gameCount+=1
+      this.gameCount+=1
       //reassign humanWins.innerText = ${game1.humanPlayer.wins} in main js w/selector
   } else if (this.computerFighter === this.winner) {
       this.computerPlayer.wins+=1
-      // this.gameCount+=1
+      this.gameCount+=1
       //reassign computer.innerText = ${game1.humanPlayer.wins} in main js w/selector
     }
-    return this.gameCount+=1
   }
 
 checkforDraw() {
@@ -106,12 +107,15 @@ checkforDraw() {
 
 resetGame() {
   if (this.gameCount === 1) {
-      this.gameGoing = false
       this.humanFighter = ''
       this.computerFighter = ''
       this.board.splice(0, 2)
       this.winner = ''
       this.gameCount = 0
+      this.gameVersion = ''
+      this.humanPlayer.turn = false
+      this.computerPlayer.turn = false
+      this.draw = false
   }
 }
 
@@ -127,26 +131,3 @@ resetGame() {
 
 
 // module.exports = Game;
-//
-// var game = new Game ('spicy');
-// game.humanFighter = 'alien'
-// game.computerFighter = 'rock'
-// game.board = ['alien', 'rock']
-// game.pickWinner();
-// game.addWins();
-// game.humanFighter = 'rock'
-// game.computerFighter = 'alien'
-// game.board = ['rock', 'alien']
-// game.pickWinner();
-// game.addWins();
-
-
-// console.log('winner', game.winner)
-// console.log('human', game.humanPlayer.wins)
-// console.log('comp', game.computerPlayer.wins)
-// console.log(game.gameCount)
-// console.log('count', game.gameCount)
-// console.log('draw', game.draw)
-// console.log(game.board)
-// console.log('turn', game.humanPlayer.turn)
-// console.log(game.gameCount)
