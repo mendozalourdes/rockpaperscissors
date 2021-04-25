@@ -5,6 +5,7 @@ class Player {
     this.name = name;
     this.token = token;
     this.wins = 0;
+    this.turn = false
   }
 
   saveWinsToStorage() {
@@ -21,15 +22,8 @@ class Player {
 
 
   takeTurn() {
-    if (event.target.id === 'rock' || event.target.id === 'paper' || event.target.id === 'scissors' || event.target.id === 'lizard' || event.target.id === 'alien') {
-      this.humanFighter = event.target.id;
-  } else if (this.gameVersion === 'classic') {
-      this.fighter.length = 3;
-      this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name;
-      this.board.push(this.computerFighter);
-  } else if (this.gameVersion === 'spicy') {
-      this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name;
-      this.board.push(this.computerFighter);
+    if (game1.board.length === 2) {
+      this.turn= true
     }
   }
 }
