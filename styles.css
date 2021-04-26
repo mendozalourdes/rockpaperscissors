@@ -1,11 +1,9 @@
 * {
-  /* border: 1px solid blue; */
   font-family: 'Chalkduster', sans-serif;
   color: #9DC88D;
   margin: 0;
   vertical-align: baseline;
 }
-
 
 body {
   background-color: #164A41;
@@ -94,7 +92,6 @@ main {
   background-color: #568203;
 }
 
-
 .playing-field,
 .choose-fighter-container {
   display: flex;
@@ -104,19 +101,12 @@ main {
 .fighter-image {
   cursor: pointer;
   width: 70%;
-  /* width: 65%; */
   margin-left: 15%;
 }
 
 .chosen-fighter {
   cursor: default;
 }
-
-.human-side{
-  display: flex;
-  flex-direction: column;
-}
-
 
 .change-game-button {
   cursor: pointer;
@@ -130,7 +120,6 @@ main {
 .change-game-button:hover {
   background-color: #568203;
 }
-
 
 .hidden {
   display: none;

@@ -1,13 +1,12 @@
-
 //---------------------Query Selectors---------------------//
-var gameOptions = document.getElementById('gameOptionsContainer');
-var fighterContainer = document.getElementById('fighterContainer');
-var subHeading = document.getElementById('subHeading');
 var changeGameButton = document.getElementById('changeGameButton');
-var humanWins = document.getElementById('humanWins')
+var chooseFighterContainer = document.getElementById('chooseFighterContainer')
 var computerWins = document.getElementById('computerWins');
+var fighterContainer = document.getElementById('fighterContainer');
+var gameOptions = document.getElementById('gameOptionsContainer');
+var humanWins = document.getElementById('humanWins')
 var spaceProvider = document.getElementById('spaceProvider');
-var  chooseFighterContainer = document.getElementById('chooseFighterContainer')
+var subHeading = document.getElementById('subHeading');
 
 //----------------Global Variables -------------------------//
 var game1 = new Game();
@@ -36,7 +35,8 @@ function hide(element) {
 }
 
 function gameSelection() {
-  game1.chooseGameLevel();
+  var target = (event.target.id)
+  game1.chooseGameLevel(target);
   showGameBoard();
 }
 
@@ -64,7 +64,7 @@ function showGameBoard() {
     show(spaceProvider);
     hide(gameOptions);
     show(fighterContainer);
-    show(chooseFighterContainer)
+    show(chooseFighterContainer);
     chooseFighterContainer.innerHTML = ''
     fighterContainer.innerHTML = ''
     fighterContainer.classList.add('playing-field')
@@ -79,6 +79,12 @@ function showGameBoard() {
   }
 }
 
+function beginGame(){
+  var target = (event.target.id)
+  game1.chooseFighter(target);
+  displayFighters();
+}
+
 function displayFighters() {
   fighterContainer.innerHTML = ''
   for (i = 0; i < 2; i++) {
@@ -89,20 +95,9 @@ function displayFighters() {
   </section>
   </section>
   `
+  subHeading.innerText = "And the winner is......🥁🥁🥁"
   }
-    window.setTimeout(continueGame, 300);
-}
-
-function beginGame(){
-  var target = (event.target.id)
-  game1.chooseFighter(target);
-  displayFighters();
-  // game1.pickWinner();
-  // game1.addWins();
-  // game1.checkforDraw();
-  // updateLocalStorage();
-  // updateWinner();
-  // slowReset();
+    window.setTimeout(continueGame, 500);
 }
 
 function continueGame() {
@@ -111,36 +106,24 @@ function continueGame() {
   game1.checkforDraw();
   updateLocalStorage();
   updateWinner();
-  slowReset();
-}
-
-
-
-function slowReset() {
-    resetAll();
+  resetAll();
 }
 
  function resetAll() {
   game1.resetGame();
-  window.setTimeout(returnGameBoard, 500);
-
+  window.setTimeout(returnGameBoard, 1000);
  }
-
 
  function returnGameBoard() {
-   hide(chooseFighterContainer)
+   hide(chooseFighterContainer);
    show(changeGameButton);
    showGameBoard();
-   game1.resetGame()
-   beginGame();
  }
-
 
 function pullStoredWins() {
   game1.humanPlayer.retrieveWinsFromStorage();
   game1.computerPlayer.retrieveWinsFromStorage();
   displayWins();
-
 }
 
 function updateLocalStorage() {
@@ -148,18 +131,18 @@ function updateLocalStorage() {
   game1.computerPlayer.saveWinsToStorage();
 }
 
-function updateWinner() {
-  if (game1.humanFighter === game1.winner) {
-    subHeading.innerText = `${game1.humanPlayer.token}${game1.humanPlayer.name} won this round!${game1.humanPlayer.token}`
-  } else if (game1.computerFighter === game1.winner) {
-        subHeading.innerText = `${game1.computerPlayer.token}${game1.computerPlayer.name} won this round!${game1.computerPlayer.token}`
-  } else if (game1.draw === true) {
-      subHeading.innerText = `🥺🥺It's a draw!!🥺🥺`
-  }
-  displayWins();
-}
-
-  function displayWins() {
+function displayWins() {
   humanWins.innerText = 'Wins: ' + game1.humanPlayer.retrieveWinsFromStorage();
   computerWins.innerText = 'Wins: ' + game1.computerPlayer.retrieveWinsFromStorage();
+}
+
+function updateWinner() {
+  if (game1.humanFighter === game1.winner) {
+    subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name} won this round!${game1.humanPlayer.token}`
+  } else if (game1.computerFighter === game1.winner) {
+        subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name} won this round!${game1.computerPlayer.token}`
+  } else if (game1.draw === true) {
+      subHeading.innerText = `🥺🥺It's a tie!!🥺🥺`
+  }
+  displayWins();
 }
