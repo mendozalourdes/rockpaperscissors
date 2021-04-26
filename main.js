@@ -1,13 +1,13 @@
 
 //---------------------Query Selectors---------------------//
-var middleContainer = document.querySelector('#middleContainer');
 var gameOptions = document.getElementById('gameOptionsContainer');
 var fighterContainer = document.getElementById('fighterContainer');
 var subHeading = document.getElementById('subHeading');
 var changeGameButton = document.getElementById('changeGameButton');
-var leftSideContainer = document.getElementById('leftSideContainer');
 var humanWins = document.getElementById('humanWins')
-var computerWins = document.getElementById('computerWins')
+var computerWins = document.getElementById('computerWins');
+var spaceProvider = document.getElementById('spaceProvider');
+var  chooseFighterContainer = document.getElementById('chooseFighterContainer')
 
 //----------------Global Variables -------------------------//
 var game1 = new Game();
@@ -43,8 +43,11 @@ function gameSelection() {
 function showGameBoard() {
   if (game1.gameVersion === 'classic') {
     subHeading.innerText = 'Choose your fighter!'
+    show(spaceProvider);
     hide(gameOptions);
     show(fighterContainer);
+    show(chooseFighterContainer)
+    chooseFighterContainer.innerHTML = ''
     fighterContainer.innerHTML = ''
     fighterContainer.classList.add('playing-field')
       for (var i = 0; i < 3; i++) {
@@ -58,8 +61,11 @@ function showGameBoard() {
       }
   } else if (game1.gameVersion === 'spicy') {
     subHeading.innerText = 'Choose your fighter!'
+    show(spaceProvider);
     hide(gameOptions);
     show(fighterContainer);
+    show(chooseFighterContainer)
+    chooseFighterContainer.innerHTML = ''
     fighterContainer.innerHTML = ''
     fighterContainer.classList.add('playing-field')
         for (var i = 0; i < game1.fighter.length; i++) {
@@ -75,35 +81,59 @@ function showGameBoard() {
 
 function displayFighters() {
   fighterContainer.innerHTML = ''
-  for (i = 0; i < game1.board.length; i++) {
-  fighterContainer.innerHTML += `
+  for (i = 0; i < 2; i++) {
+  chooseFighterContainer.innerHTML += `
   <section class="playing-field ${game1.board[i]}" id="playingField">
   <section class="${game1.board[i]} fighter" id="${game1.board[i]}">
-      <img class="${game1.board[i]} fighter-image" src="assets/happy-${game1.board[i]}.png" id="${game1.board[i]}"/>
+      <img class="${game1.board[i]} fighter-image chosen-fighter" src="assets/happy-${game1.board[i]}.png" id="${game1.board[i]}"/>
   </section>
   </section>
   `
   }
+    window.setTimeout(continueGame, 300);
 }
 
 function beginGame(){
-  game1.chooseFighter();
+  var target = (event.target.id)
+  game1.chooseFighter(target);
   displayFighters();
+  // game1.pickWinner();
+  // game1.addWins();
+  // game1.checkforDraw();
+  // updateLocalStorage();
+  // updateWinner();
+  // slowReset();
+}
+
+function continueGame() {
   game1.pickWinner();
   game1.addWins();
   game1.checkforDraw();
   updateLocalStorage();
   updateWinner();
-  // console.log('board', game1.board)
-  // console.log('h', game1.humanFighter)
-  // console.log('c', game1.computerFighter);
-  // console.log('hwin', game1.humanPlayer.wins)
-  // console.log('cwin', game1.computerPlayer.wins)
-  // console.log('count', game1.gameCount)
-  // game1.resetGame();
-  show(changeGameButton);
-
+  slowReset();
 }
+
+
+
+function slowReset() {
+    resetAll();
+}
+
+ function resetAll() {
+  game1.resetGame();
+  window.setTimeout(returnGameBoard, 500);
+
+ }
+
+
+ function returnGameBoard() {
+   hide(chooseFighterContainer)
+   show(changeGameButton);
+   showGameBoard();
+   game1.resetGame()
+   beginGame();
+ }
 
 
 function pullStoredWins() {
