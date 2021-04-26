@@ -3,11 +3,7 @@
   color: #9DC88D;
   margin: 0;
   vertical-align: baseline;
-}
-
-body {
   background-color: #164A41;
-  margin: 0
 }
 
 main {
@@ -70,6 +66,7 @@ main {
 }
 
 .sub-heading {
+  margin-top: 1%;
   font-size: 2.5rem;
 }
 
@@ -99,12 +96,12 @@ main {
 .classic-game,
 .spicy-game {
   background-color: #164A41;
-  border: 5px solid  #4D774E;
+  border: 5px solid #4D774E;
 }
 
-
 .spicy-game:hover,
-.classic-game:hover {
+.classic-game:hover,
+.change-game-button:hover {
   background-color: #568203;
 }
 
@@ -112,7 +109,6 @@ main {
 .choose-fighter-container {
   display: flex;
   flex-direction: row;
-  /* background-color: #4D774E; */
 }
 
 .fighter-image {
@@ -134,12 +130,8 @@ main {
   width: 55%;
   height: 7%;
   background-color: #164A41;
-  border-radius: 15%;
+  border-radius: 20%;
   margin: 45% 0 0 5%;
-}
-
-.change-game-button:hover {
-  background-color: #568203;
 }
 
 .hidden {
