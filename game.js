@@ -12,27 +12,22 @@ class Game {
     this.fighter = [{
         name: 'rock',
         src: 'assets/happy-rock.png',
-        id: 'rock'
       },
       {
         name: 'paper',
         src: 'assets/happy-paper.png',
-        id: 'paper'
       },
       {
         name: 'scissors',
         src: 'assets/happy-scissors.png',
-        id: 'scissors'
       },
       {
         name: 'lizard',
         src: 'assets/happy-lizard.png',
-        id: 'lizard'
       },
       {
         name: 'alien',
         src: 'assets/happy-alien.png',
-        id: 'alien'
       }
     ]
   }

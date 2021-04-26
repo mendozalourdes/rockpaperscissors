@@ -18,8 +18,7 @@ window.addEventListener('load', presentPlayers);
 gameOptions.addEventListener('click', gameSelection);
 fighterContainer.addEventListener('click', beginGame);
 changeGameButton.addEventListener('click', function() {
-  location.reload()
-});
+  location.reload()});
 
 // -------------------Event Handlers -----------------------//
 function presentPlayers() {
@@ -43,8 +42,7 @@ function hide(element) {
 }
 
 function gameSelection() {
-  var target = (event.target.id)
-  game1.chooseGameLevel(target);
+  game1.chooseGameLevel(event.target.id);
   showGameBoard();
 }
 
@@ -65,8 +63,8 @@ function showGameBoard() {
     for (var i = 0; i < 3; i++) {
       fighterContainer.innerHTML += `
       <section class="playing-field ${game1.fighter[i].name}" id="playingField">
-        <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
-            <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}" alt="fighter-option-image ${game1.fighter[i].name}"/>
+        <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].name}">
+            <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].name}" alt="fighter-option-image ${game1.fighter[i].name}"/>
         </section>
       </section>
         `
@@ -76,8 +74,8 @@ function showGameBoard() {
     for (var i = 0; i < game1.fighter.length; i++) {
       fighterContainer.innerHTML += `
           <section class="playing-field ${game1.fighter[i].name}" id="playingField">
-            <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
-                <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}" alt="fighter-option-image ${game1.fighter[i].name}"/>
+            <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].name}">
+                <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].name}" alt="fighter-option-image ${game1.fighter[i].name}"/>
             </section>
           </section>        `
     }
@@ -85,9 +83,7 @@ function showGameBoard() {
 }
 
 function beginGame() {
-  var target = (event.target.id)
-  game1.chooseFighter(target);
-  console.log('board', game1.board)
+  game1.chooseFighter(event.target.id);
   displayFighters();
 }
 
