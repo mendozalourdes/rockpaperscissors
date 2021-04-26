@@ -8,8 +8,6 @@ var humanWins = document.getElementById('humanWins')
 var computerWins = document.getElementById('computerWins');
 var spaceProvider = document.getElementById('spaceProvider');
 var  chooseFighterContainer = document.getElementById('chooseFighterContainer')
-// var leftSideContainer = document.getElementById('leftSideContainer');
-// var middleContainer = document.querySelector('#middleContainer');
 
 //----------------Global Variables -------------------------//
 var game1 = new Game();
@@ -18,12 +16,7 @@ var game1 = new Game();
 window.addEventListener('load', presentPlayers);
 gameOptions.addEventListener('click', gameSelection);
 fighterContainer.addEventListener('click', beginGame);
-
-// chooseFighterContainer.addEventListener('click', -------)
 changeGameButton.addEventListener('click', function(){location.reload()});
-
-
-// fighterContainer.addEventListener("click", handler);
 
 // -------------------Event Handlers -----------------------//
 function presentPlayers() {
@@ -92,7 +85,7 @@ function displayFighters() {
   chooseFighterContainer.innerHTML += `
   <section class="playing-field ${game1.board[i]}" id="playingField">
   <section class="${game1.board[i]} fighter" id="${game1.board[i]}">
-      <img class="${game1.board[i]} fighter-image" src="assets/happy-${game1.board[i]}.png" id="${game1.board[i]}"/>
+      <img class="${game1.board[i]} fighter-image chosen-fighter" src="assets/happy-${game1.board[i]}.png" id="${game1.board[i]}"/>
   </section>
   </section>
   `

@@ -108,6 +108,10 @@ main {
   margin-left: 15%;
 }
 
+.chosen-fighter {
+  cursor: default;
+}
+
 .human-side{
   display: flex;
   flex-direction: column;
