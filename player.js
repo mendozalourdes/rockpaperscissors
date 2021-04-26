@@ -6,6 +6,7 @@ class Player {
     this.token = token;
     this.wins = 0;
     this.turn = false
+    this.id = Date.now()
   }
 
   saveWinsToStorage() {

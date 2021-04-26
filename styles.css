@@ -43,6 +43,10 @@ main {
   margin-top: 15%;
 }
 
+.space-provider {
+  margin-top: 20%;
+}
+
 .middle-section-container {
   display: flex;
   flex-direction: column;
@@ -91,10 +95,10 @@ main {
 }
 
 
-.playing-field {
+.playing-field,
+.choose-fighter-container {
   display: flex;
   flex-direction: row;
-  margin-top: 8%;
 }
 
 .fighter-image {

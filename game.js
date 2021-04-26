@@ -84,11 +84,15 @@ pickWinner() {
 }
 
 addWins() {
+  this.humanPlayer.wins = this.humanPlayer.retrieveWinsFromStorage();
+  this.computerPlayer.wins = this.computerPlayer.retrieveWinsFromStorage();
   if (this.humanFighter === this.winner) {
       this.humanPlayer.wins+=1
+      this.humanPlayer.saveWinsToStorage();
       this.gameCount+=1
   } else if (this.computerFighter === this.winner) {
       this.computerPlayer.wins+=1
+        this.computerPlayer.saveWinsToStorage();
       this.gameCount+=1
     }
   }
@@ -117,10 +121,7 @@ resetGame() {
   }
 }
 
+
 }
-
-
-
-
 
 // module.exports = Game;
