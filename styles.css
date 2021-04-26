@@ -3,11 +3,7 @@
   color: #9DC88D;
   margin: 0;
   vertical-align: baseline;
-}
-
-body {
   background-color: #164A41;
-  margin: 0
 }
 
 main {
@@ -16,7 +12,6 @@ main {
   height: 100vh;
   width: 100vw;
   margin: 0;
-
 }
 
 .left-side-container,
@@ -27,7 +22,19 @@ main {
   background-color: #4D774E;
   align-items: center;
   width: 20vw;
-  font-size: 50px;
+  font-size: 40px;
+}
+
+.left-header,
+.right-header,
+.human-emoji,
+.computer-emoji,
+.human-wins,
+.computer-wins {
+  border: 1px green solid;
+  background-color: #164A41;
+  border-radius: 50%;
+  padding: 5%;
 }
 
 .human-wins,
@@ -59,6 +66,7 @@ main {
 }
 
 .sub-heading {
+  margin-top: 1%;
   font-size: 2.5rem;
 }
 
@@ -71,7 +79,6 @@ main {
 }
 
 .classic-game {
-  background-color: #4D774E;
   margin-bottom: 3rem;
   padding: 3%;
   cursor: pointer;
@@ -80,15 +87,21 @@ main {
 }
 
 .spicy-game {
-  background-color: #4D774E;
   padding: 4.5%;
   cursor: pointer;
   border-radius: 15%;
   font-size: 16px;
 }
 
+.classic-game,
+.spicy-game {
+  background-color: #164A41;
+  border: 5px solid #4D774E;
+}
+
 .spicy-game:hover,
-.classic-game:hover {
+.classic-game:hover,
+.change-game-button:hover {
   background-color: #568203;
 }
 
@@ -101,7 +114,10 @@ main {
 .fighter-image {
   cursor: pointer;
   width: 70%;
-  margin-left: 15%;
+  margin-left: 10%;
+  background-color: #4D774E;
+  border-radius: 20%;
+  padding: 5%;
 }
 
 .chosen-fighter {
@@ -114,11 +130,8 @@ main {
   width: 55%;
   height: 7%;
   background-color: #164A41;
-  border-radius: 15%;
+  border-radius: 20%;
   margin: 45% 0 0 5%;
-}
-.change-game-button:hover {
-  background-color: #568203;
 }
 
 .hidden {
