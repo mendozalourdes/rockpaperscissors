@@ -15,11 +15,13 @@ var game1 = new Game();
 window.addEventListener('load', presentPlayers);
 gameOptions.addEventListener('click', gameSelection);
 fighterContainer.addEventListener('click', beginGame);
-changeGameButton.addEventListener('click', function(){location.reload()});
+changeGameButton.addEventListener('click', function() {
+  location.reload()
+});
 
 // -------------------Event Handlers -----------------------//
 function presentPlayers() {
-pullStoredWins();
+  pullStoredWins();
 }
 
 function getRandomIndex(array) {
@@ -50,15 +52,15 @@ function showGameBoard() {
     chooseFighterContainer.innerHTML = ''
     fighterContainer.innerHTML = ''
     fighterContainer.classList.add('playing-field')
-      for (var i = 0; i < 3; i++) {
-        fighterContainer.innerHTML += `
+    for (var i = 0; i < 3; i++) {
+      fighterContainer.innerHTML += `
       <section class="playing-field ${game1.fighter[i].name}" id="playingField">
         <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
             <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}"/>
         </section>
       </section>
         `
-      }
+    }
   } else if (game1.gameVersion === 'spicy') {
     subHeading.innerText = 'Choose your fighter!'
     show(spaceProvider);
@@ -68,8 +70,8 @@ function showGameBoard() {
     chooseFighterContainer.innerHTML = ''
     fighterContainer.innerHTML = ''
     fighterContainer.classList.add('playing-field')
-        for (var i = 0; i < game1.fighter.length; i++) {
-          fighterContainer.innerHTML += `
+    for (var i = 0; i < game1.fighter.length; i++) {
+      fighterContainer.innerHTML += `
           <section class="playing-field ${game1.fighter[i].name}" id="playingField">
             <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
                 <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}"/>
@@ -79,7 +81,7 @@ function showGameBoard() {
   }
 }
 
-function beginGame(){
+function beginGame() {
   var target = (event.target.id)
   game1.chooseFighter(target);
   displayFighters();
@@ -88,16 +90,16 @@ function beginGame(){
 function displayFighters() {
   fighterContainer.innerHTML = ''
   for (i = 0; i < 2; i++) {
-  chooseFighterContainer.innerHTML += `
+    chooseFighterContainer.innerHTML += `
   <section class="playing-field ${game1.board[i]}" id="playingField">
   <section class="${game1.board[i]} fighter" id="${game1.board[i]}">
       <img class="${game1.board[i]} fighter-image chosen-fighter" src="assets/happy-${game1.board[i]}.png" id="${game1.board[i]}"/>
   </section>
   </section>
   `
-  subHeading.innerText = "And the winner is......🥁🥁🥁"
+    subHeading.innerText = "And the winner is......🥁🥁🥁"
   }
-    window.setTimeout(continueGame, 500);
+  window.setTimeout(continueGame, 500);
 }
 
 function continueGame() {
@@ -109,16 +111,16 @@ function continueGame() {
   resetAll();
 }
 
- function resetAll() {
+function resetAll() {
   game1.resetGame();
   window.setTimeout(returnGameBoard, 1000);
- }
+}
 
- function returnGameBoard() {
-   hide(chooseFighterContainer);
-   show(changeGameButton);
-   showGameBoard();
- }
+function returnGameBoard() {
+  hide(chooseFighterContainer);
+  show(changeGameButton);
+  showGameBoard();
+}
 
 function pullStoredWins() {
   game1.humanPlayer.retrieveWinsFromStorage();
@@ -140,9 +142,9 @@ function updateWinner() {
   if (game1.humanFighter === game1.winner) {
     subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name} won this round!${game1.humanPlayer.token}`
   } else if (game1.computerFighter === game1.winner) {
-        subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name} won this round!${game1.computerPlayer.token}`
+    subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name} won this round!${game1.computerPlayer.token}`
   } else if (game1.draw === true) {
-      subHeading.innerText = `🥺🥺It's a tie!!🥺🥺`
+    subHeading.innerText = `🥺🥺It's a tie!!🥺🥺`
   }
   displayWins();
 }

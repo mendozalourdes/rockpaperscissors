@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
-    <title>Rock Paper Scissors</title>
-  </head>
-    <body>
-      <main class="main-page" id="mainPage">
-        <section class="left-side-container" id="leftSideContainer">
-          <p class="human-emoji" id="humanEmoji">👩🏽‍🦱</p>
-          <p class="left-header" id="leftHeader">Human</p>
-          <p class="human-wins" id="humanWins">Wins: 0</p>
-          <button class="change-game-button hidden" id="changeGameButton" value="change">Change Game?</button>
-        </section>
-        <section class="middle-section-container" id="middleContainer">
-          <section class="header" id="header">
-            <h1 class="game-name" id="gameName">Rock, Paper, Scissors</h1>
-              <p class="sub-heading" id="subHeading">Choose your game!</p>
-          </section>
-          <span class="space-provider hidden" id="spaceProvider"></span>
-          <form class="choose-fighter-container hidden" id="chooseFighterContainer">
-          </form>
-          <form class="fighter-container hidden" id="fighterContainer">
-          </form>
-          <section class="game-options-container" id="gameOptionsContainer">
-            <button class="classic-game classic" id="classic">
-              <p id="classic">🪨</p>
-              <h2 class="classic-title classic " id="classic">📃✂️CLASSIC📃✂️</H1>
-                <p class="classic-rules classic" id="classic" >rock > scissors </p>
-                <p class="classic-rules classic" id="classic">paper > rock </p>
-                <p class="classic-rules classic" id="classic">rock > scissors</p>
-            </button>
-            <button class="spicy-game spicy" id="spicy">
-              <h2 class="spicy-title spicy" id="spicy">👽🦎SPICY🦎👽</h2>
-                <p class="spicy-rules spicy" id="spicy">rock > scissors & lizard </p>
-                <p class="spicy-rules spicy" id="spicy">paper > rock & alien </p>
-                <p class="spicy-rules spicy" id="spicy">scissors > paper & lizard </p>
-                <p class="spicy-rules spicy" id="spicy">paper > paper & alien </p>
-                <p class="spicy-rules spicy" id="spicy">alien > scissors & rock </p>
-            </button>
-          </section>
-        </section>
-        <section class="right-side-container" id="rightSideContainer">
-            <p class="computer-emoji" id="computerEmoji">💻</p>
-            <p class="right-header" id="rightHeader">Computer</p>
-            <p class="computer-wins" id="computerWins">Wins: 0</p>
-        </section>
-      </main>
-      <script src="./player.js"></script>
-      <script src="./game.js"></script>
-      <script src="./main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Playball&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+  <main class="main-page" id="mainPage">
+    <section class="left-side-container" id="leftSideContainer">
+      <p class="human-emoji" id="humanEmoji">👩🏽‍🦱</p>
+      <p class="left-header" id="leftHeader">Human</p>
+      <p class="human-wins" id="humanWins">Wins: 0</p>
+      <button class="change-game-button hidden" id="changeGameButton" value="change">Change Game?</button>
+    </section>
+    <section class="middle-section-container" id="middleContainer">
+      <section class="header" id="header">
+        <h1 class="game-name" id="gameName">Rock, Paper, Scissors</h1>
+        <p class="sub-heading" id="subHeading">Choose your game!</p>
+      </section>
+      <span class="space-provider hidden" id="spaceProvider"></span>
+      <form class="choose-fighter-container hidden" id="chooseFighterContainer">
+      </form>
+      <form class="fighter-container hidden" id="fighterContainer">
+      </form>
+      <section class="game-options-container" id="gameOptionsContainer">
+        <button class="classic-game classic" id="classic">
+          <p id="classic">🪨</p>
+          <h2 class="classic-title classic " id="classic">📃✂️CLASSIC📃✂️</H1>
+            <p class="classic-rules classic" id="classic">rock > scissors </p>
+            <p class="classic-rules classic" id="classic">paper > rock </p>
+            <p class="classic-rules classic" id="classic">rock > scissors</p>
+        </button>
+        <button class="spicy-game spicy" id="spicy">
+          <h2 class="spicy-title spicy" id="spicy">👽🦎SPICY🦎👽</h2>
+          <p class="spicy-rules spicy" id="spicy">rock > scissors & lizard </p>
+          <p class="spicy-rules spicy" id="spicy">paper > rock & alien </p>
+          <p class="spicy-rules spicy" id="spicy">scissors > paper & lizard </p>
+          <p class="spicy-rules spicy" id="spicy">paper > paper & alien </p>
+          <p class="spicy-rules spicy" id="spicy">alien > scissors & rock </p>
+        </button>
+      </section>
+    </section>
+    <section class="right-side-container" id="rightSideContainer">
+      <p class="computer-emoji" id="computerEmoji">💻</p>
+      <p class="right-header" id="rightHeader">Computer</p>
+      <p class="computer-wins" id="computerWins">Wins: 0</p>
+    </section>
+  </main>
+  <script src="./player.js"></script>
+  <script src="./game.js"></script>
+  <script src="./main.js"></script>
+</body>
+
 </html>

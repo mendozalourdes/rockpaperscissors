@@ -15,14 +15,14 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-      var wins = JSON.parse(localStorage.getItem(`${this.name}`) || '0')
-      return wins
+    var wins = JSON.parse(localStorage.getItem(`${this.name}`) || '0')
+    return wins
   }
 
 
   takeTurn() {
     if (game1.board.length === 2) {
-      this.turn= true
+      this.turn = true
     }
   }
 }
