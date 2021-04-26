@@ -1,7 +1,7 @@
 class Game {
   constructor(gameVersion, fighter, winner) {
-    this.humanPlayer = new Player('Human', '👩🏽‍🦱')
-    this.computerPlayer = new Player('Computer', '💻')
+    this.humanPlayer = new Player(name, '👩🏽‍🦱')
+    this.computerPlayer = new Player(name, '💻')
     this.gameVersion = gameVersion
     this.draw = false;
     this.humanFighter = fighter

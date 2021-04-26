@@ -1,10 +1,12 @@
 //---------------------Query Selectors---------------------//
 var changeGameButton = document.getElementById('changeGameButton');
-var chooseFighterContainer = document.getElementById('chooseFighterContainer')
+var chooseFighterContainer = document.getElementById('chooseFighterContainer');
+var computerHeader = document.getElementById('rightHeader');
 var computerWins = document.getElementById('computerWins');
 var fighterContainer = document.getElementById('fighterContainer');
 var gameOptions = document.getElementById('gameOptionsContainer');
-var humanWins = document.getElementById('humanWins')
+var humanHeader = document.getElementById('leftHeader');
+var humanWins = document.getElementById('humanWins');
 var spaceProvider = document.getElementById('spaceProvider');
 var subHeading = document.getElementById('subHeading');
 
@@ -21,6 +23,10 @@ changeGameButton.addEventListener('click', function() {
 
 // -------------------Event Handlers -----------------------//
 function presentPlayers() {
+  game1.humanPlayer.name = 'Human'
+  game1.computerPlayer.name = 'Computer'
+  humanHeader.innerText = game1.humanPlayer.name
+  computerHeader.innerText = game1.computerPlayer.name
   pullStoredWins();
 }
 
@@ -56,7 +62,7 @@ function showGameBoard() {
       fighterContainer.innerHTML += `
       <section class="playing-field ${game1.fighter[i].name}" id="playingField">
         <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
-            <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}"/>
+            <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}" alt="fighter-option-image ${game1.fighter[i].name}"/>
         </section>
       </section>
         `
@@ -74,7 +80,7 @@ function showGameBoard() {
       fighterContainer.innerHTML += `
           <section class="playing-field ${game1.fighter[i].name}" id="playingField">
             <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
-                <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}"/>
+                <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}" alt="fighter-option-image ${game1.fighter[i].name}"/>
             </section>
           </section>        `
     }
@@ -93,7 +99,7 @@ function displayFighters() {
     chooseFighterContainer.innerHTML += `
   <section class="playing-field ${game1.board[i]}" id="playingField">
   <section class="${game1.board[i]} fighter" id="${game1.board[i]}">
-      <img class="${game1.board[i]} fighter-image chosen-fighter" src="assets/happy-${game1.board[i]}.png" id="${game1.board[i]}"/>
+      <img class="${game1.board[i]} fighter-image chosen-fighter" src="assets/happy-${game1.board[i]}.png" id="${game1.board[i]}" alt="-chosen-fighter-image ${game1.fighter[i].name}"/>
   </section>
   </section>
   `
@@ -113,7 +119,7 @@ function continueGame() {
 
 function resetAll() {
   game1.resetGame();
-  window.setTimeout(returnGameBoard, 1000);
+  window.setTimeout(returnGameBoard, 1500);
 }
 
 function returnGameBoard() {
@@ -140,11 +146,11 @@ function displayWins() {
 
 function updateWinner() {
   if (game1.humanFighter === game1.winner) {
-    subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name} won this round!${game1.humanPlayer.token}`
+    subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name}!${game1.humanPlayer.token}`
   } else if (game1.computerFighter === game1.winner) {
-    subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name} won this round!${game1.computerPlayer.token}`
+    subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name}!${game1.computerPlayer.token}`
   } else if (game1.draw === true) {
-    subHeading.innerText = `🥺🥺It's a tie!!🥺🥺`
+    subHeading.innerText = `🥺🥺Nobody! It's a tie!!🥺🥺`
   }
   displayWins();
 }
