@@ -48,16 +48,20 @@ function gameSelection() {
   showGameBoard();
 }
 
+function prepGameBoard() {
+  subHeading.innerText = 'Choose your fighter!'
+  show(spaceProvider);
+  hide(gameOptions);
+  show(fighterContainer);
+  show(chooseFighterContainer)
+  chooseFighterContainer.innerHTML = ''
+  fighterContainer.innerHTML = ''
+  fighterContainer.classList.add('playing-field')
+}
+
 function showGameBoard() {
   if (game1.gameVersion === 'classic') {
-    subHeading.innerText = 'Choose your fighter!'
-    show(spaceProvider);
-    hide(gameOptions);
-    show(fighterContainer);
-    show(chooseFighterContainer)
-    chooseFighterContainer.innerHTML = ''
-    fighterContainer.innerHTML = ''
-    fighterContainer.classList.add('playing-field')
+    prepGameBoard();
     for (var i = 0; i < 3; i++) {
       fighterContainer.innerHTML += `
       <section class="playing-field ${game1.fighter[i].name}" id="playingField">
@@ -68,14 +72,7 @@ function showGameBoard() {
         `
     }
   } else if (game1.gameVersion === 'spicy') {
-    subHeading.innerText = 'Choose your fighter!'
-    show(spaceProvider);
-    hide(gameOptions);
-    show(fighterContainer);
-    show(chooseFighterContainer);
-    chooseFighterContainer.innerHTML = ''
-    fighterContainer.innerHTML = ''
-    fighterContainer.classList.add('playing-field')
+    prepGameBoard();
     for (var i = 0; i < game1.fighter.length; i++) {
       fighterContainer.innerHTML += `
           <section class="playing-field ${game1.fighter[i].name}" id="playingField">
@@ -90,6 +87,7 @@ function showGameBoard() {
 function beginGame() {
   var target = (event.target.id)
   game1.chooseFighter(target);
+  console.log('board', game1.board)
   displayFighters();
 }
 
@@ -145,9 +143,9 @@ function displayWins() {
 }
 
 function updateWinner() {
-  if (game1.humanFighter === game1.winner) {
+  if (game1.humanFighter === game1.winningFighter) {
     subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name}!${game1.humanPlayer.token}`
-  } else if (game1.computerFighter === game1.winner) {
+  } else if (game1.computerFighter === game1.winningFighter) {
     subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name}!${game1.computerPlayer.token}`
   } else if (game1.draw === true) {
     subHeading.innerText = `🥺🥺Nobody! It's a tie!!🥺🥺`

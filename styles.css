@@ -108,13 +108,17 @@ main {
 
 .change-game-button:hover {
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-  animation:slidebg 2s linear infinite;
+  animation: slidebg 2s linear infinite;
 }
 
 .playing-field,
 .choose-fighter-container {
   display: flex;
   flex-direction: row;
+}
+
+.choose-fighter-container {
+  margin-left: 10%;
 }
 
 .fighter-image {
@@ -129,7 +133,7 @@ main {
 .fighter-image:hover {
   transform: scale(1.25);
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-  animation:slidebg 2s linear infinite;
+  animation: slidebg 2s linear infinite;
 }
 
 .chosen-fighter {
@@ -137,7 +141,6 @@ main {
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
   pointer-events: none;
 }
-
 
 .change-game-button {
   cursor: pointer;
