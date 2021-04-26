@@ -1,5 +1,3 @@
-// var Game = require('./game');
-
 class Player {
   constructor(name, token) {
     this.name = name;

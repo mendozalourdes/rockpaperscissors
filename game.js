@@ -1,4 +1,3 @@
-// var Player = require('./player');
 class Game {
   constructor(gameVersion, fighter, winner) {
     this.humanPlayer = new Player('Human', '👩🏽‍🦱')
@@ -39,33 +38,30 @@ class Game {
     ]
   }
 
-  chooseGameLevel() {
-    if (event.target.id === 'classic') {
+  chooseGameLevel(target) {
+    if (target=== 'classic') {
       this.gameVersion = 'classic'
-    } else if (event.target.id === 'spicy') {
+    } else if (target === 'spicy') {
       this.gameVersion = 'spicy'
     }
-    // subHeading.innerText = "Choose your fighter!"
   }
-
 
   chooseFighter(target) {
     if (target === 'rock' || target === 'paper' || target === 'scissors' || target === 'lizard' || target === 'alien') {
         this.humanFighter = target
         this.board.push(this.humanFighter)
-  } if (this.board.length === 1) {
-      if (this.gameVersion === 'classic') {
+      } if (this.board.length === 1 && this.gameVersion === 'classic') {
         this.fighter.length = 3
         this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name
         this.board.push(this.computerFighter)
-    } else if (this.gameVersion === 'spicy') {
+    } else if (this.board.length === 1 && this.gameVersion === 'spicy') {
         this.computerFighter = this.fighter[getRandomIndex(this.fighter)].name
         this.board.push(this.computerFighter)
     }
+    this.humanPlayer.takeTurn();
+    this.computerPlayer.takeTurn();
   }
-  this.humanPlayer.takeTurn();
-  this.computerPlayer.takeTurn();
-}
+
 
 pickWinner() {
   for (var i = 0; i < this.board.length; i++) {
@@ -108,20 +104,13 @@ checkforDraw() {
   }
 
 resetGame() {
-  if (this.gameCount >= 1) {
       this.humanFighter = ''
       this.computerFighter = ''
       this.board = []
       this.winner = ''
-      // this.gameCount = 0
-      // this.gameVersion = ''
       this.humanPlayer.turn = false
       this.computerPlayer.turn = false
       this.draw = false
+    }
+
   }
-}
-
-
-}
-
-// module.exports = Game;
