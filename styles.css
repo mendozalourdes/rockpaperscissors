@@ -1,5 +1,5 @@
 * {
-  font-family: 'Chalkduster', sans-serif;
+  font-family: 'Zen Dots', cursive;
   color: #9DC88D;
   margin: 0;
   vertical-align: baseline;
@@ -22,7 +22,7 @@ main {
   background-color: #4D774E;
   align-items: center;
   width: 20vw;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .left-header,
@@ -97,13 +97,18 @@ main {
   background-color: #164A41;
   border: 5px solid #4D774E;
   cursor: pointer;
+  transition: transform .2s;
 }
 
 .spicy-game:hover,
 .classic-game:hover,
-.change-game-button:hover,
-.game-description:hover {
-  background-color: #568203;
+.change-game-button:hover {
+  transform: scale(1.25);
+}
+
+.change-game-button:hover {
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  animation:slidebg 2s linear infinite;
 }
 
 .playing-field,
@@ -116,14 +121,23 @@ main {
   cursor: pointer;
   width: 70%;
   margin-left: 10%;
-  background-color: #4D774E;
   border-radius: 20%;
   padding: 5%;
+  transition: transform .2s;
+}
+
+.fighter-image:hover {
+  transform: scale(1.25);
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  animation:slidebg 2s linear infinite;
 }
 
 .chosen-fighter {
   cursor: default;
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  pointer-events: none;
 }
+
 
 .change-game-button {
   cursor: pointer;
