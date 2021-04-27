@@ -42,7 +42,7 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
-function gameSelection() {
+function gameSelection(event) {
   game1.chooseGameLevel(event.target.id);
   showGameBoard();
 }
@@ -59,31 +59,25 @@ function prepGameBoard() {
 }
 
 function showGameBoard() {
+  var gameDifficulty = 0;
+  prepGameBoard();
   if (game1.gameVersion === 'classic') {
-    prepGameBoard();
-    for (var i = 0; i < 3; i++) {
-      fighterContainer.innerHTML += `
+    gameDifficulty = 3
+  } else {
+    gameDifficulty = 5;
+  }
+  for (var i = 0; i < gameDifficulty; i++) {
+    fighterContainer.innerHTML += `
       <section class="playing-field ${game1.fighter[i].name}" id="playingField">
         <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].name}">
             <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].name}" alt="fighter-option-image ${game1.fighter[i].name}"/>
         </section>
       </section>
         `
-    }
-  } else if (game1.gameVersion === 'spicy') {
-    prepGameBoard();
-    for (var i = 0; i < game1.fighter.length; i++) {
-      fighterContainer.innerHTML += `
-          <section class="playing-field ${game1.fighter[i].name}" id="playingField">
-            <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].name}">
-                <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].name}" alt="fighter-option-image ${game1.fighter[i].name}"/>
-            </section>
-          </section>        `
-    }
   }
 }
 
-function beginGame() {
+function beginGame(event) {
   game1.chooseFighter(event.target.id);
   game1.chooseComputerFighter();
   displayFighters();
