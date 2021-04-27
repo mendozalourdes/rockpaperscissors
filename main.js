@@ -23,10 +23,10 @@ changeGameButton.addEventListener('click', function() {
 
 // -------------------Event Handlers -----------------------//
 function presentPlayers() {
-  game1.humanPlayer.name = 'Human'
-  game1.computerPlayer.name = 'Computer'
-  humanHeader.innerText = game1.humanPlayer.name
-  computerHeader.innerText = game1.computerPlayer.name
+  game1.humanPlayer.name = 'Human';
+  game1.computerPlayer.name = 'Computer';
+  humanHeader.innerText = game1.humanPlayer.name;
+  computerHeader.innerText = game1.computerPlayer.name;
   pullStoredWins();
 }
 
@@ -43,8 +43,7 @@ function hide(element) {
 }
 
 function gameSelection() {
-  var target = (event.target.id)
-  game1.chooseGameLevel(target);
+  game1.chooseGameLevel(event.target.id);
   showGameBoard();
 }
 
@@ -53,10 +52,10 @@ function prepGameBoard() {
   show(spaceProvider);
   hide(gameOptions);
   show(fighterContainer);
-  show(chooseFighterContainer)
+  show(chooseFighterContainer);
   chooseFighterContainer.innerHTML = ''
   fighterContainer.innerHTML = ''
-  fighterContainer.classList.add('playing-field')
+  fighterContainer.classList.add('playing-field');
 }
 
 function showGameBoard() {
@@ -65,8 +64,8 @@ function showGameBoard() {
     for (var i = 0; i < 3; i++) {
       fighterContainer.innerHTML += `
       <section class="playing-field ${game1.fighter[i].name}" id="playingField">
-        <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
-            <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}" alt="fighter-option-image ${game1.fighter[i].name}"/>
+        <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].name}">
+            <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].name}" alt="fighter-option-image ${game1.fighter[i].name}"/>
         </section>
       </section>
         `
@@ -76,8 +75,8 @@ function showGameBoard() {
     for (var i = 0; i < game1.fighter.length; i++) {
       fighterContainer.innerHTML += `
           <section class="playing-field ${game1.fighter[i].name}" id="playingField">
-            <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].id}">
-                <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].id}" alt="fighter-option-image ${game1.fighter[i].name}"/>
+            <section class="${game1.fighter[i].name} fighter" id="${game1.fighter[i].name}">
+                <img class="${game1.fighter[i].name} fighter-image" src="${game1.fighter[i].src}" id="${game1.fighter[i].name}" alt="fighter-option-image ${game1.fighter[i].name}"/>
             </section>
           </section>        `
     }
@@ -85,9 +84,8 @@ function showGameBoard() {
 }
 
 function beginGame() {
-  var target = (event.target.id)
-  game1.chooseFighter(target);
-  console.log('board', game1.board)
+  game1.chooseFighter(event.target.id);
+  game1.chooseComputerFighter();
   displayFighters();
 }
 
@@ -101,7 +99,7 @@ function displayFighters() {
   </section>
   </section>
   `
-    subHeading.innerText = "And the winner is......🥁🥁🥁"
+    subHeading.innerText = "And the winner is......🥁🥁🥁";
   }
   window.setTimeout(continueGame, 500);
 }
@@ -144,11 +142,11 @@ function displayWins() {
 
 function updateWinner() {
   if (game1.humanFighter === game1.winningFighter) {
-    subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name}!${game1.humanPlayer.token}`
+    subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name}!${game1.humanPlayer.token}`;
   } else if (game1.computerFighter === game1.winningFighter) {
-    subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name}!${game1.computerPlayer.token}`
+    subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name}!${game1.computerPlayer.token}`;
   } else if (game1.draw === true) {
-    subHeading.innerText = `🥺🥺Nobody! It's a tie!!🥺🥺`
+    subHeading.innerText = `🥺🥺Nobody! It's a tie!!🥺🥺`;
   }
   displayWins();
 }
