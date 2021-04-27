@@ -8,8 +8,8 @@ class Player {
   }
 
   saveWinsToStorage() {
-    var human = game1.humanPlayer
-    var computer = game1.computerPlayer
+    var human = game.humanPlayer
+    var computer = game.computerPlayer
     localStorage.setItem('Human', JSON.stringify(human.wins));
     localStorage.setItem('Computer', JSON.stringify(computer.wins));
   }
@@ -21,11 +21,8 @@ class Player {
 
 
   takeTurn() {
-    if (game1.board.length === 2) {
+    if (game.board.length === 2) {
       this.turn = true
     }
   }
 }
-
-
-// module.exports = Player;

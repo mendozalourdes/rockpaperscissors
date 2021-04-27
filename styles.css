@@ -93,7 +93,8 @@ main {
 }
 
 .classic-game,
-.spicy-game {
+.spicy-game,
+.change-game-button {
   background-color: #164A41;
   border: 10px solid #4D774E;
   cursor: pointer;
@@ -104,10 +105,6 @@ main {
 .classic-game:hover,
 .change-game-button:hover {
   transform: scale(1.25);
-}
-
-.change-game-button:hover {
-  background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
 }
 
 .playing-field,
@@ -146,8 +143,9 @@ main {
   width: 55%;
   height: 7%;
   background-color: #164A41;
-  border-radius: 20%;
+  border-radius: 15%;
   margin: 45% 0 0 5%;
+  border: 5px solid #9DC88D;
 }
 
 .hidden {
