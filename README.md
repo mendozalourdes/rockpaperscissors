@@ -76,7 +76,7 @@ Demonstration of the Spicy Game Level.
 #### Reviewers
 <table>
     <tr>
-         <td> Orlando Murcio <a href="https://https://github.com/Atos20">GH</td>
+         <td> Orlando Murcio <a href="https://github.com/Atos20">GH</td>
     </tr>
     </tr>
     <td><img src="https://avatars.githubusercontent.com/u/56229864?v=4" alt="Orlando GH img"
