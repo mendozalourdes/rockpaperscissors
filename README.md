@@ -73,6 +73,17 @@ Demonstration of the Spicy Game Level.
     <tr>
 </table>
 
+#### Reviewers
+<table>
+    <tr>
+         <td> Orlando Murcio <a href="https://https://github.com/Atos20">GH</td>
+    </tr>
+    </tr>
+    <td><img src="https://avatars.githubusercontent.com/u/56229864?v=4" alt="Orlando GH img"
+ width="150" height="auto" /></td>
+</tr>
+</table>
+
 #### Project Manager
 <table>
     <tr>
