@@ -24,7 +24,14 @@ To solidify and demonstrate the understanding of:
 **[Back to top](#table-of-contents)**
 
 ## How does this work?
-Images  to come.
+Demonstration of the Classic Game Level.
+
+![Classic Game](https://user-images.githubusercontent.com/78240633/116167718-0acaec00-a6be-11eb-8056-880ee90a8f82.gif)
+
+Demonstration of the Spicy Game Level.
+
+![Spicy Game](https://user-images.githubusercontent.com/78240633/116167746-20d8ac80-a6be-11eb-8178-12925a3d71de.gif)
+
 
 **[Back to top](#table-of-contents)**
 
@@ -50,7 +57,6 @@ Images  to come.
 ##### Challenges
 * Ensuring a proper sequence of event for a positive user experience.
 
-
 #### Future Features
 * Add a user login functionality
 * Add an imput field for a user to input their name.
@@ -66,9 +72,6 @@ Images  to come.
  width="150" height="auto" /></td>
     <tr>
 </table>
-
-#### Reviewers
-TBD
 
 #### Project Manager
 <table>
