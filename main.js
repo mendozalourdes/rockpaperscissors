@@ -18,14 +18,15 @@ window.addEventListener('load', presentPlayers);
 gameOptions.addEventListener('click', gameSelection);
 fighterContainer.addEventListener('click', beginGame);
 changeGameButton.addEventListener('click', function() {
-  location.reload()});
+  location.reload()
+});
 
 // -------------------Event Handlers -----------------------//
 function presentPlayers() {
-  game1.humanPlayer.name = 'Human'
-  game1.computerPlayer.name = 'Computer'
-  humanHeader.innerText = game1.humanPlayer.name
-  computerHeader.innerText = game1.computerPlayer.name
+  game1.humanPlayer.name = 'Human';
+  game1.computerPlayer.name = 'Computer';
+  humanHeader.innerText = game1.humanPlayer.name;
+  computerHeader.innerText = game1.computerPlayer.name;
   pullStoredWins();
 }
 
@@ -51,10 +52,10 @@ function prepGameBoard() {
   show(spaceProvider);
   hide(gameOptions);
   show(fighterContainer);
-  show(chooseFighterContainer)
+  show(chooseFighterContainer);
   chooseFighterContainer.innerHTML = ''
   fighterContainer.innerHTML = ''
-  fighterContainer.classList.add('playing-field')
+  fighterContainer.classList.add('playing-field');
 }
 
 function showGameBoard() {
@@ -84,6 +85,7 @@ function showGameBoard() {
 
 function beginGame() {
   game1.chooseFighter(event.target.id);
+  game1.chooseComputerFighter();
   displayFighters();
 }
 
@@ -97,7 +99,7 @@ function displayFighters() {
   </section>
   </section>
   `
-    subHeading.innerText = "And the winner is......🥁🥁🥁"
+    subHeading.innerText = "And the winner is......🥁🥁🥁";
   }
   window.setTimeout(continueGame, 500);
 }
@@ -140,11 +142,11 @@ function displayWins() {
 
 function updateWinner() {
   if (game1.humanFighter === game1.winningFighter) {
-    subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name}!${game1.humanPlayer.token}`
+    subHeading.innerText = `${game1.humanPlayer.token}The ${game1.humanPlayer.name}!${game1.humanPlayer.token}`;
   } else if (game1.computerFighter === game1.winningFighter) {
-    subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name}!${game1.computerPlayer.token}`
+    subHeading.innerText = `${game1.computerPlayer.token}The ${game1.computerPlayer.name}!${game1.computerPlayer.token}`;
   } else if (game1.draw === true) {
-    subHeading.innerText = `🥺🥺Nobody! It's a tie!!🥺🥺`
+    subHeading.innerText = `🥺🥺Nobody! It's a tie!!🥺🥺`;
   }
   displayWins();
 }

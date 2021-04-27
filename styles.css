@@ -31,7 +31,7 @@ main {
 .computer-emoji,
 .human-wins,
 .computer-wins {
-  border: 1px green solid;
+  border: 4px #9DC88D solid;
   background-color: #164A41;
   border-radius: 50%;
   padding: 5%;
@@ -45,7 +45,7 @@ main {
 
 .human-emoji,
 .computer-emoji {
-  margin-top: 15%;
+  margin: 15% 0 5% 0;
 }
 
 .space-provider {
@@ -86,16 +86,16 @@ main {
 }
 
 .spicy-game {
-  padding: 4.5%;
+  padding: 3.5%;
   cursor: pointer;
   border-radius: 15%;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .classic-game,
 .spicy-game {
   background-color: #164A41;
-  border: 5px solid #4D774E;
+  border: 10px solid #4D774E;
   cursor: pointer;
   transition: transform .2s;
 }
@@ -108,7 +108,6 @@ main {
 
 .change-game-button:hover {
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-  animation: slidebg 2s linear infinite;
 }
 
 .playing-field,
@@ -133,7 +132,6 @@ main {
 .fighter-image:hover {
   transform: scale(1.25);
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-  animation: slidebg 2s linear infinite;
 }
 
 .chosen-fighter {
@@ -144,7 +142,7 @@ main {
 
 .change-game-button {
   cursor: pointer;
-  font-size: 15px;
+  font-size: 20px;
   width: 55%;
   height: 7%;
   background-color: #164A41;
